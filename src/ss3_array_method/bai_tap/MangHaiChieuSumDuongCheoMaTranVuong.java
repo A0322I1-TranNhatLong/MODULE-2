@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MangHaiChieuSumDuongCheoMaTranVuong {
     public static void main(String[] args) {
         //Nhap so hang,cot hinh vuong
-       Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập số hàng: ");
         int inputRow = scanner.nextInt();
         System.out.print("Nhập số cột: ");
