@@ -1,4 +1,4 @@
-package ss6_ke_thua.bai_tap.CircleCylinder;
+package ss6_ke_thua.bai_tap.circle_cylinder;
 
 public class Circle {
     private double radius = 1.0;

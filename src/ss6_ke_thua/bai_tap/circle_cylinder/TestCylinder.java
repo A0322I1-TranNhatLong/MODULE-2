@@ -1,4 +1,4 @@
-package ss6_ke_thua.bai_tap.CircleCylinder;
+package ss6_ke_thua.bai_tap.circle_cylinder;
 
 public class TestCylinder {
     public static void main(String[] args) {

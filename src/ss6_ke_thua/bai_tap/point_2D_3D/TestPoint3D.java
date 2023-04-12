@@ -1,4 +1,4 @@
-package ss6_ke_thua.bai_tap.Point2D3D;
+package ss6_ke_thua.bai_tap.point_2D_3D;
 
 public class TestPoint3D {
     public static void main(String[] args) {

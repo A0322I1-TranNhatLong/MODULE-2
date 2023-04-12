@@ -1,4 +1,4 @@
-package ss6_ke_thua.bai_tap.PointMoveablePoint;
+package ss6_ke_thua.bai_tap.point_2D_3D;
 
 public class Point {
     protected float x;
