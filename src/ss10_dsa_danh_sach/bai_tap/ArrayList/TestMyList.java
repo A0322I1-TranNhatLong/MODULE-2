@@ -1,4 +1,4 @@
-package ss10_dsa_danh_sach.bai_tap.array_list;
+package ss10_dsa_danh_sach.bai_tap.ArrayList;
 
 public class TestMyList {
     public static void main(String[] args) {

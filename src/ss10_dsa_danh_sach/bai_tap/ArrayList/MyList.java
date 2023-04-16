@@ -1,4 +1,4 @@
-package ss10_dsa_danh_sach.bai_tap.array_list;
+package ss10_dsa_danh_sach.bai_tap.ArrayList;
 
 import java.util.Arrays;
 
