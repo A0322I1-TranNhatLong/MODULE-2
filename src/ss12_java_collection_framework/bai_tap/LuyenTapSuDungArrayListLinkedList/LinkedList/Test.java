@@ -2,9 +2,9 @@ package ss12_java_collection_framework.bai_tap.LuyenTapSuDungArrayListLinkedList
 
 import ss12_java_collection_framework.bai_tap.LuyenTapSuDungArrayListLinkedList.ArrayList.Product;
 
-public class Test extends Product {
+public class Test {
     public static void main(String[] args) {
-        Product sp1 = new Product("Tivi", "T01", 100000);
+        Product sp1 = new Product("Ti vi", "T01", 100000);
         Product sp2 = new Product("Laptop", "L01", 200000);
         Product sp3 = new Product("Bút", "B01", 5000);
         ProductManager productManager = new ProductManager();

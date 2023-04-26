@@ -12,7 +12,6 @@ public class ProductManager {
     public void add(Product product) {
         list.add(product);
     }
-
     public void edit() {
         System.out.print("Nhập id Product muốn edit:");
         String id = scanner.nextLine();
