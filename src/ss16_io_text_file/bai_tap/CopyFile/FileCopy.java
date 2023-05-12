@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FileCopy {
     public static List<String> readFileText(String filePath) {
-        List <String> list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         try {
             // Đọc file theo đường dẫn
             File file = new File(filePath);
@@ -28,27 +28,28 @@ public class FileCopy {
         System.out.println(list);
         return list;
     }
-    public static int writeFileText(String filePath, List<String> list) throws IOException{
+
+    public static int writeFileText(String filePath, List<String> list) throws IOException {
         int count = 0;
         try {
             FileWriter writer = new FileWriter(filePath);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            for (String text : list){
+            for (String text : list) {
                 bufferedWriter.write(text);
                 bufferedWriter.newLine();
-                count+= text.length();
+                count += text.length();
             }
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return(count);
+        return (count);
     }
 
     public static void main(String[] args) throws IOException {
         final String SOURCE = "D:\\CodeGym\\TranNhatLong-A1222I1_Md2\\src\\ss16_io_text_file\\bai_tap\\CopyFile\\Source.csv";
         String TARGET = "D:\\CodeGym\\TranNhatLong-A1222I1_Md2\\src\\ss16_io_text_file\\bai_tap\\CopyFile\\Target.csv";
         List<String> list = readFileText(SOURCE);
-        System.out.println("Kết quả : " +  writeFileText(TARGET,list));
+        System.out.println("Kết quả : " + writeFileText(TARGET, list));
     }
 }
