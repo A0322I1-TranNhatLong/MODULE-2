@@ -74,6 +74,7 @@ public class FacilityServiceImpl implements FacilityService {
                 case 2:
                     House tempHouse = addNewHouse();
                     facilities.put(tempHouse, 0);
+                    ReadAndWriteHouse.writeCSV(facilities);
                     display();
                     break;
                 case 3:
@@ -239,9 +240,19 @@ public class FacilityServiceImpl implements FacilityService {
 
     public House addNewHouse() {
         facilities = new LinkedHashMap<>();
-
+        try {
+            LinkedHashMap<Facility, Integer> list = ReadAndWriteHouse.readCSV();
+            for (Facility house : list.keySet()) {
+                facilities.put(house, list.get(house));
+            }
+            for (Facility facility : facilities.keySet()) {
+                System.out.println(facility + " , " + facilities.get(facility));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhập tên dịch: ");
+        System.out.println("Nhập tên dịch vụ : ");
         String name = input.nextLine();
         double price = 0;
         do {
@@ -249,39 +260,39 @@ public class FacilityServiceImpl implements FacilityService {
                 System.out.println("Nhập giá : ");
                 price = Double.parseDouble(input.nextLine());
                 if (price < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui lòng nhập số lớn hơn 0 !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Bạn nhập không đúng, vui lòng nhập số lớn hơn 0 ! ");
             }
         } while (price < 0);
-        int numberr = 0;
+        int number = 0;
         do {
             try {
                 System.out.println("Nhập số lượng : ");
-                numberr = Integer.parseInt(input.nextLine());
-                if (numberr < 0 || numberr > 20) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                number = Integer.parseInt(input.nextLine());
+                if (number < 0 || number > 20) {
+                    System.out.println("Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20 ! ");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0 và nhỏ hơn 20");
+                System.out.println("Bạn nhập không đúng , vui lòng nhập lại ! ");
             }
-        } while (numberr < 0 || numberr > 20);
+        } while (number < 0 || number > 20);
         System.out.println("Nhập kiểu: ");
         String type = input.nextLine();
         double usableArea = 0;
         do {
             try {
-                System.out.println("Diện có thể sử dụng được: ");
+                System.out.println("Diện tích có thể sử dụng được : ");
                 usableArea = Double.parseDouble(input.nextLine());
                 if (usableArea < 30) {
-                    System.out.println("Vui lòng nhập số lớn hơn 30");
+                    System.out.println("Vui lòng nhập số lớn hơn 30 !");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 30");
+                System.out.println("Bạn nhập không đúng , vui lòng nhập lại ! ");
             }
         } while (usableArea < 30);
-        System.out.println("Tiêu chuẩn phòng: ");
+        System.out.println("Tiêu chuẩn phòng : ");
         String roomStandard = input.nextLine();
         int numberOfFloors = 0;
         do {
@@ -289,13 +300,13 @@ public class FacilityServiceImpl implements FacilityService {
                 System.out.println("Nhập số tầng : ");
                 numberOfFloors = Integer.parseInt(input.nextLine());
                 if (numberOfFloors < 0) {
-                    System.out.println("Vui lòng nhập số lớn hơn 0");
+                    System.out.println("Vui lòng nhập số lớn hơn 0 ! ");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Bạn nhập không đúng,Vui lòng nhập số lớn hơn 0");
+                System.out.println("Bạn nhập không đúng vui lòng nhập lại ! ");
             }
         } while (numberOfFloors < 0);
-        return new House(name, price, numberr, type, usableArea, roomStandard, numberOfFloors);
+        return new House(name, price, number, type, usableArea, roomStandard, numberOfFloors);
     }
 
     @Override

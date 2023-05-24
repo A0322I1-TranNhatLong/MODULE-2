@@ -54,15 +54,15 @@ public class RegexPerson {
         return newIDCard;
     }
 
-//    public static String inputNewNumberPhone() {
-//        System.out.println("Enter Number Phone : ");
-//        String newNumberPhone = scanner.nextLine();
-//        while (!newNumberPhone.matches(REGEX_NUMBER_PHONE)) {
-//            System.out.println("You input bad format, please please get back !");
-//            newNumberPhone = scanner.nextLine();
-//        }
-//        return newNumberPhone;
-//    }
+    public static String inputNewNumberPhone() {
+        System.out.println("Enter Number Phone : ");
+        String newNumberPhone = scanner.nextLine();
+        while (!newNumberPhone.matches(REGEX_NUMBER_PHONE)) {
+            System.out.println("You input bad format, please please get back !");
+            newNumberPhone = scanner.nextLine();
+        }
+        return newNumberPhone;
+    }
 
     public static String email() {
         System.out.println("Nhập email : ");

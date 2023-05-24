@@ -34,17 +34,15 @@ public class ReadAndWriteHouse {
         return fac;
     }
 
-    public static void writeCSV(LinkedHashMap<Facility, Integer> houseLinkdedHashMap) throws IOException {
+    public static void writeCSV(LinkedHashMap<Facility, Integer>houseLinkedHashMap) throws IOException{
         FileWriter fileWriter = new FileWriter(FILE_PATH);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        for (Facility facility : houseLinkdedHashMap.keySet()) {
-            if (facility instanceof House) {
-                House house = new House();
-                bufferedWriter.write(house.getName() + "," + house.getPrice() + "," + house.getNumberOfPeople() + "," + house.getRentalType() + "," + house.getUsableArea() + "," + house.getRoomStandard() + "," + house.getNumberOfFloors() + "\n");
-
+        for (Facility facility: houseLinkedHashMap.keySet()){
+            if (facility instanceof House){
+                House house = (House) facility;
+                bufferedWriter.write(house.getName()+ "," + house.getPrice() + "," + house.getNumberOfPeople() + "," + house.getRentalType() + "," + house.getUsableArea() + "," + house.getRoomStandard() + "," + house.getNumberOfFloors() + "\n");
             }
         }
         bufferedWriter.close();
-
     }
 }
