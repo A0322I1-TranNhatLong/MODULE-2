@@ -67,7 +67,7 @@ public class FacilityServiceImpl implements FacilityService {
             switch (choice) {
                 case 1:
                     Villa tempVilla = addNewVilla();
-                    facilities.put(tempVilla, 0);
+                    facilities.put(tempVilla,0);
                     ReadAndWriteVilla.writeCSV(facilities);
                     display();
                     break;

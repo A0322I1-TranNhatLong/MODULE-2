@@ -19,18 +19,18 @@ public class RegexPerson {
 
     public static LocalDate age() {
         LocalDate birthday;
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         while (true) {
             try {
                 System.out.println("Nhập ngày sinh:");
-                birthday = LocalDate.parse(scanner.nextLine(), dateFormat);
+                birthday = LocalDate.parse(scanner.nextLine(), formatter);
                 LocalDate now = LocalDate.now();
                 if (now.getYear() - birthday.getYear() < 18 || now.getYear() - birthday.getYear() > 100) {
                     throw new IOException("Tuổi Bạn phải trên 18 tuổi và dưới 100 tuổi");
                 }
                 return birthday;
             } catch (NumberFormatException | DateTimeParseException e) {
-                System.out.println("Định dạng ngày sinh không chính xác (yyyy-MM-dd)");
+                System.out.println("Định dạng ngày sinh không chính xác (dd/MM/yyyy)");
             } catch (IOException e) {
                 System.out.println("Tuổi Bạn phải trên 18 tuổi và dưới 100 tuổi");
             }
